@@ -2,14 +2,14 @@
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-online_status_icon="#($CURRENT_DIR/scripts/online_status_icon.sh)"
-online_status_interpolation_string="\#{online_status}"
+song_title="#($CURRENT_DIR/scripts/song_title.sh)"
+song_title_interpolation_string="\#{song_title}"
 
 source $CURRENT_DIR/scripts/shared.sh
 
 do_interpolation() {
 	local string="$1"
-	local interpolated="${string/$online_status_interpolation_string/$online_status_icon}"
+	local interpolated="${string/$song_title_interpolation_string/$song_title}"
 	echo "$interpolated"
 }
 
