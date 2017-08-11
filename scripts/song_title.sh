@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 print_song_title() {
-    printf "♪$(mpc current)"
+    title="$(mpc current)"
+    pos="$(mpc | grep --color=never play | sed 's/.*   //;s/ .*$//')"
+    [[ -n "$pos" ]] && printf "♫ ${title} [${pos}]" || printf "𝄐"
 }
 
 main() {
