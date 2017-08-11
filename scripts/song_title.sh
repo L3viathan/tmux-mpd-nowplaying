@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 print_song_title() {
-    printf "$(mpc current)"
+    printf "♪$(mpc current)"
 }
 
 main() {
