@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 print_song_title() {
-    title="$(mpc current)"
-    pos="$(mpc | grep --color=never play | sed 's/.*   //;s/ .*$//')"
-    [[ -n "$pos" ]] && printf "♫ ${title} [${pos}]" || printf "𝄐"
+    title="$(mpc current | sed -E 's/.(mp3|wav|flac|m4a)//g' )"
+    pos="$(mpc | grep --color=never play | sed -E 's/.*  +//;s/ .*$//')"
+    [[ -n "$pos" ]] && printf "> ${title} [${pos}]" || printf "|| ${title}"
 }
 
 main() {
-	print_song_title
+    print_song_title
 }
 main
